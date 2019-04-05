@@ -1,9 +1,6 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.stream.Collectors.joining;
 
@@ -16,7 +13,7 @@ public class Graph implements IDirectedGraph {
     private Map<Node, List<Arc>> adjacence;
 
     public Graph() {
-        adjacence = new HashMap<Node, List<Arc>>();
+        adjacence = new HashMap<>();
     }
 
     /**
@@ -36,7 +33,7 @@ public class Graph implements IDirectedGraph {
     }
 
     public void addNode(Node _node) {
-        adjacence.put(_node, new ArrayList<Arc>());
+        adjacence.put(_node, new ArrayList<>());
     }
 
     public void addArc(Arc _edge) {
@@ -46,7 +43,7 @@ public class Graph implements IDirectedGraph {
     }
 
     public List<Node> getAllNodes() {
-        return new ArrayList<Node>(adjacence.keySet());
+        return new ArrayList<>(adjacence.keySet());
     }
 
     public int getNbNodes() {
@@ -66,7 +63,11 @@ public class Graph implements IDirectedGraph {
      */
     public List<Node> getAdjNodes(Node _n) {
         //A COMPLETER
-        List<Node> listNode = new ArrayList<Node>();
+        List<Node> listNode = new ArrayList<>();
+        if(!adjacence.containsKey(_n)) {
+            return null;
+        }
+
         for (Arc arc : adjacence.get(_n)) {
             if (arc.getSource().equals(_n)) {
                 listNode.add(arc.getDestination());
@@ -74,6 +75,11 @@ public class Graph implements IDirectedGraph {
         }
 
         return listNode;
+    }
+
+    @Override
+    public Iterator<Node> creerBFSIterator(Node n) {
+        return new BFSIterator(this, n);
     }
 
 

@@ -29,7 +29,7 @@ public interface IGraph {
 	/**
 	 * renvoi un iterateur pour recherche en largeur
 	 */
-	//public Iterator<Node> creerBFSIterator(Node n);
+	public Iterator<Node> creerBFSIterator(Node n);
 	
 	/**
 	 * renvoi un iterateur pour recherche en profondeur
