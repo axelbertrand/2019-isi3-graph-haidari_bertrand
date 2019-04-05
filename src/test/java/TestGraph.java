@@ -27,10 +27,6 @@ public class TestGraph {
 		System.out.println(g.hasArc(n1, n2)+" "+g.hasArc(n2, n4));
 		System.out.println(g.getAdjNodes(n3));
 		System.out.println(g.getArc(n2));
-		
-		
-		
-		
 	}
 
 }

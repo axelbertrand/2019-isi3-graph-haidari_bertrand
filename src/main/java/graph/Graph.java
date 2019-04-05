@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.joining;
 
 
 public class Graph implements IDirectedGraph {
@@ -78,20 +79,16 @@ public class Graph implements IDirectedGraph {
 
     @Override
     public String toString() {
-        String s = "Graph \n";
         //A COMPLETER
+
         StringBuilder sBuilder = new StringBuilder();
         sBuilder.append("Graph \n");
         for (Node node : adjacence.keySet()) {
-            sBuilder.append("[=" + node.getLabel() + " : [");
-            for (Node nodeDestination : getAdjNodes(node)) {
-                sBuilder.append(node + " ==> " + nodeDestination); // TODO : Valuation arcs
-            }
+            sBuilder.append("[noeud = " + node.getLabel() + " : [");
+            String stringifiedArcs = getArc(node).stream().map(Object::toString).collect(joining(", "));
+            sBuilder.append(stringifiedArcs + "] \n");
         }
 
-
-        return s;
+        return sBuilder.toString();
     }
-
-
 }
