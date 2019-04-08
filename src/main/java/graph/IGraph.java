@@ -34,5 +34,5 @@ public interface IGraph {
 	/**
 	 * renvoi un iterateur pour recherche en profondeur
 	 */
-	//public Iterator<Node> creerDFSIterator(Node n);
+	public Iterator<Node> creerDFSIterator(Node n);
 }

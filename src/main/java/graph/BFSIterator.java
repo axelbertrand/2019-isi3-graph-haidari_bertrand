@@ -1,38 +1,20 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Queue;
+import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-public class BFSIterator implements Iterator<Node> {
-    IGraph graph;
-    Queue<Node> nodeQueue = new ConcurrentLinkedQueue<>();
-    List<Node> markedNodes = new ArrayList<>();
-    Node currentNode;
-
+public class BFSIterator extends GraphIterator {
     public BFSIterator(IGraph graph, Node root) {
-        this.graph = graph;
-        nodeQueue.add(root);
-        markedNodes.add(root);
+        super(graph, root);
     }
 
     @Override
-    public boolean hasNext() {
-        return !nodeQueue.isEmpty();
+    protected Collection<Node> createNodeCollection() {
+        return new ConcurrentLinkedQueue<>();
     }
 
     @Override
-    public Node next() {
-        currentNode = nodeQueue.remove();
-        for(Node adjacentNode : graph.getAdjNodes(currentNode)) {
-            if(!markedNodes.contains(adjacentNode)) {
-                nodeQueue.add(adjacentNode);
-                markedNodes.add(adjacentNode);
-            }
-        }
-
-        return currentNode;
+    protected Node getAndRemoveLastElement() {
+        return ((ConcurrentLinkedQueue<Node>) nodeCollection).remove();
     }
 }

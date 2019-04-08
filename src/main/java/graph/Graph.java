@@ -64,7 +64,7 @@ public class Graph implements IDirectedGraph {
     public List<Node> getAdjNodes(Node _n) {
         //A COMPLETER
         List<Node> listNode = new ArrayList<>();
-        if(!adjacence.containsKey(_n)) {
+        if (!adjacence.containsKey(_n)) {
             return null;
         }
 
@@ -80,6 +80,11 @@ public class Graph implements IDirectedGraph {
     @Override
     public Iterator<Node> creerBFSIterator(Node n) {
         return new BFSIterator(this, n);
+    }
+
+    @Override
+    public Iterator<Node> creerDFSIterator(Node n) {
+        return new DFSIterator(this, n);
     }
 
 

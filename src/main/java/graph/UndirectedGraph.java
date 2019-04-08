@@ -41,4 +41,9 @@ public class UndirectedGraph implements IUndirectedGraph {
     public Iterator<Node> creerBFSIterator(Node n) {
         return graph.creerBFSIterator(n);
     }
+
+    @Override
+    public Iterator<Node> creerDFSIterator(Node n) {
+        return graph.creerDFSIterator(n);
+    }
 }
