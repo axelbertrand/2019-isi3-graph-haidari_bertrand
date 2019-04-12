@@ -63,11 +63,11 @@ public class Graph implements IDirectedGraph {
      */
     public List<Node> getAdjNodes(Node _n) {
         //A COMPLETER
-        List<Node> listNode = new ArrayList<>();
         if (!adjacence.containsKey(_n)) {
             return null;
         }
 
+        List<Node> listNode = new ArrayList<>();
         for (Arc arc : adjacence.get(_n)) {
             if (arc.getSource().equals(_n)) {
                 listNode.add(arc.getDestination());
@@ -95,7 +95,7 @@ public class Graph implements IDirectedGraph {
         StringBuilder sBuilder = new StringBuilder();
         sBuilder.append("Graph \n");
         for (Node node : adjacence.keySet()) {
-            sBuilder.append("[noeud = " + node.getLabel() + " : [");
+            sBuilder.append("[noeud = " + node + " : [");
             String stringifiedArcs = getArc(node).stream().map(Object::toString).collect(joining(", "));
             sBuilder.append(stringifiedArcs + "] \n");
         }
