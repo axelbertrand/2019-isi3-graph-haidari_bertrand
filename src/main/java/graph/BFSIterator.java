@@ -14,7 +14,5 @@ public class BFSIterator extends GraphIterator {
     }
 
     @Override
-    protected Node getAndRemoveLastElement() {
-        return ((ConcurrentLinkedQueue<Node>) nodeCollection).remove();
-    }
+    protected Node getAndRemoveLastElement() { return ((ConcurrentLinkedQueue<Node>) nodeCollection).remove(); }
 }
