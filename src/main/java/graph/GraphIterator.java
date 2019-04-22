@@ -1,14 +1,11 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public abstract class GraphIterator implements Iterator<Node> {
     protected IGraph graph;
     protected Collection<Node> nodeCollection;
-    protected List<Node> markedNodes = new ArrayList<>();
+    protected Set<Node> markedNodes = new HashSet<>();
 
     public GraphIterator(IGraph graph, Node root) {
         this.graph = graph;
@@ -30,9 +27,8 @@ public abstract class GraphIterator implements Iterator<Node> {
     public Node next() {
         Node currentNode = this.getAndRemoveLastElement();
         for(Node adjacentNode : graph.getAdjNodes(currentNode)) {
-            if(!markedNodes.contains(adjacentNode)) {
+            if(markedNodes.add(adjacentNode)) {
                 nodeCollection.add(adjacentNode);
-                markedNodes.add(adjacentNode);
             }
         }
 
