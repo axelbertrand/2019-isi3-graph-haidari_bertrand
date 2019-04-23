@@ -2,6 +2,7 @@ package graph;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class UndirectedGraph implements IUndirectedGraph {
     private Graph graph = new Graph();
@@ -23,7 +24,7 @@ public class UndirectedGraph implements IUndirectedGraph {
     }
 
     @Override
-    public List<Node> getAllNodes() {
+    public Set<Node> getAllNodes() {
         return graph.getAllNodes();
     }
 

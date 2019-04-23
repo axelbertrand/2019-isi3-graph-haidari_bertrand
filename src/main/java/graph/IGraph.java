@@ -14,7 +14,7 @@ public interface IGraph {
 	 * 
 	 * @return tous les noeuds du graph
 	 */
-	public List<Node> getAllNodes();
+	public Set<Node> getAllNodes();
 	/**
 	 * 
 	 * @return le nombre de noeuds du graph

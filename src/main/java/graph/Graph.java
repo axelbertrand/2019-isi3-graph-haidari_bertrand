@@ -42,8 +42,8 @@ public class Graph implements IDirectedGraph {
         }
     }
 
-    public List<Node> getAllNodes() {
-        return new ArrayList<>(adjacence.keySet());
+    public Set<Node> getAllNodes() {
+        return adjacence.keySet();
     }
 
     public int getNbNodes() {
