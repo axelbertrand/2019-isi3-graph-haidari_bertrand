@@ -90,7 +90,7 @@ Ceci permet ensuite à BFSIterator d'itérer sur la collection d'objets Node en 
 Queue et d'avoir la possibilité de la modifier par la suite. De plus, l’intérêt de ce pattern est d’avoir au final une 
 implémentation du parcours pour deux types de graphes différents (orienté et non orienté).
 
-Pour marquer les noeuds déjà traversés lors du pracours, nous avons utilisé un objet Set. Cet objet a l'avantage, par rapport à un objet List, de ne stocker aucun doublon ce qui permet d'être sûr de ne pas marquer un noeud que l'on aurait déjà traversé.
+Pour marquer les noeuds que l'on traverse lors du pracours, nous avons utilisé un objet Set. Cet objet a l'avantage, par rapport à un objet List, de ne stocker aucun doublon ce qui permet d'être sûr de ne pas marquer un noeud que l'on aurait déjà traversé.
 
 ![Diagramme Iterator Pattern](images/Diagramme_Iterator_Pattern.png)
 
